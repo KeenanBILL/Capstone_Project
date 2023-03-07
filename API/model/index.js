@@ -15,5 +15,42 @@ class User{
         FROM Users
         WHERE emailAdd = ${emailAdd};
         `;
+
+        db.query(strQry, async(err, data)=> {
+            if(err) throw err;
+            if((!data) || (data == null)) {
+                res.status(401).json({err: ""})
+            }else{
+                await compare(userPass, data[0].userPass, (cErr, cData)=> {
+                    if(cErr) throw cErr;
+
+                    const jwToken = constructToken({
+                        emailAdd, userPass
+                    });
+
+                    res.cookie("User confirmed.", jwToken, {
+                        maxAge: 3600000,
+                        httpOnly: true
+                    })
+                    if(cResult) {
+                        res.status(200).json({
+                            msg: "Enjoy your shopping.",
+                            jwToken,
+                            result: data[0]
+                        })
+                    }else{
+                        res.status(401).json({
+                            err: "Information submitted is invalid."
+                        })
+                    }
+                })
+            }
+        })
+    }
+    fetchUsers(req, res) {
+        const strQry =
+        `
+        
+        `
     }
 }

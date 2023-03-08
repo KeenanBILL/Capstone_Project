@@ -12,7 +12,7 @@ const user = new User();
 
 const product = new Product();
 
-route.get("/$|/Eternal_Caskets", (req, res)=> {
+route.get("^/$|/Eternal_Caskets", (req, res)=> {
     res.status(200).sendFile(path.join(__dirname, "../view/index.html"))
 });
 
@@ -38,30 +38,30 @@ route.delete("/user/:id", (req, res)=> {
     user.removeUser(req, res);
 });
 
-route.patch('/register', (req, res)=> {
+route.patch("/register", (req, res)=> {
     user.register(req, res);
 });
 
 // =================================Products Route==========================================
 
 route.get("/products", (req, res)=> {
-    products.fetchProducts(req, res);
+    product.fetchProducts(req, res);
 });
 
 route.get("/products/:id", (req, res)=> {
-    products.fetchProduct(req, res);
+    product.fetchProduct(req, res);
 });
 
-route.post('/products', bodyParser.json(), (req, res)=> {
-    products.addProduct(req, res);
+route.post("/products", bodyParser.json(), (req, res)=> {
+    product.addProduct(req, res);
 });
 
-route.put('/products/:id', bodyParser.json(), (req, res)=> {
-    products.updateProd(req, res);
+route.put("/products/:id", bodyParser.json(), (req, res)=> {
+    product.updateProd(req, res);
 });
 
-route.delete('/products/:id', (req, res)=>{
-    products.removeProduct(req, res);
+route.delete("/products/:id", (req, res)=>{
+    product.removeProduct(req, res);
 });
 
 module.exports = route;

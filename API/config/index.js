@@ -1,7 +1,6 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const { truncate } = require('fs');
-const {createPool} = require('mysql');
+const {createPool} = require("mysql");
 
 const connection = createPool({
     host: process.env.DB_HOST,
@@ -12,4 +11,4 @@ const connection = createPool({
     multipleStatements:  true
 });
 
-module.exports =  connection
+module.exports =  {connection}

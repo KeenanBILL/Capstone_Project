@@ -7,7 +7,7 @@ const {constructToken} = require("../middleware/AuthenticatedUser");
 // =============================User Class======================================
 
 class User{
-    register(req, res) {
+    login(req, res) {
         const {emailAdd, userPass} = req.body;
         const strQry =
         `

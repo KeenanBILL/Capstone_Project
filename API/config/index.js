@@ -11,4 +11,4 @@ const connection = createPool({
     multipleStatements:  true
 });
 
-module.exports =  {connection}
+module.exports = connection

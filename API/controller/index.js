@@ -16,7 +16,7 @@ route.get("^/$|/Eternal_Caskets", (req, res)=> {
     res.status(200).sendFile(path.join(__dirname, "../view/index.html"))
 });
 
-// =======================================Users Route===================================
+// =========================================Users Route===============================================
 
 route.get("/users", (req, res)=> {
     user.fetchUsers(req, res);
@@ -26,7 +26,7 @@ route.get("/user/:id", (req, res)=> {
     user.fetchUser(req, res);
 });
 
-route.post("/user", bodyParser.json(), (req, res)=> {
+route.post("/register", bodyParser.json(), (req, res)=> {
     user.addUser(req, res);
 });
 
@@ -38,11 +38,11 @@ route.delete("/user/:id", (req, res)=> {
     user.removeUser(req, res);
 });
 
-route.patch("/register", (req, res)=> {
-    user.register(req, res);
+route.patch("/login", (req, res)=> {
+    user.login(req, res);
 });
 
-// =================================Products Route==========================================
+// =========================================Products Route===============================================
 
 route.get("/products", (req, res)=> {
     product.fetchProducts(req, res);

@@ -1,7 +1,7 @@
-import { createStore } from 'vuex';
 import axios from "axios";
+import { createStore } from "vuex";
 
-const renderURL = "https://eternal-caskets.onrender.com"
+const renderURL = "https://eternal-caskets.onrender.com/"
 
 export default createStore({
   state: {
@@ -12,9 +12,11 @@ export default createStore({
     showSpinner: true,
     message: null,
   },
+
   getters: {
     getUsers:(state)=>state.users,
   },
+
   mutations: {
     setUsers(state, values) {
       state.users = values;
@@ -35,6 +37,7 @@ export default createStore({
       state.showSpinner = value
     }
   },
+
   actions: {
     async fetchUsers(context) {
       const res = await axios.get(`${renderURL}Users`);
@@ -59,5 +62,6 @@ export default createStore({
       }
     },
   },
+  
   modules: {},
 });

@@ -5,15 +5,8 @@
         <h1>Products</h1>
     
         <div class="row gap-3">
-    
-            <div v-if="SpinnerComp">
-
-                <SpinnerComp/>
-
-            </div>
-    
                 
-            <div class="card" style="width: 18rem ;" v-else  v-for="item in products" :key="item.prodID" >
+            <div class="card" style="width: 18rem ;" v-for="item in products" :key="item.prodID" >
 
                 <img :src="item.imgURL" class="card-img-top" alt="...">
 
@@ -49,10 +42,10 @@
             const Products = computed(() => store.state.products);
             return {
                 Products,
-
             };
         },
     };
+
     </script>
     
     <style scoped>

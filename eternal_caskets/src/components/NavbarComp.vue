@@ -16,19 +16,19 @@
                     
                     <li class="nav-item mx-3" >
                         
-                        <router-link to="/">Home</router-link>
+                        <router-link class="links" to="/">Home</router-link>
                         
                     </li>
                     
                     <li class="nav-item mx-3">
                         
-                        <router-link to="/products">Products</router-link>
+                        <router-link class="links" to="/products">Products</router-link>
                         
                     </li>
                     
                     <li class="nav-item mx-3">
                         
-                        <router-link to="/contact">Contact</router-link>
+                        <router-link class="links" to="/contact">Contact</router-link>
                         
                     </li>
                     
@@ -53,15 +53,20 @@
 <style>
 
 .navbar {
-    background-color: #00A896;
-    border-radius: 20px;
+    background-color: #45b6c5;
+    border-radius: 28px;
     margin: 15px;
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.2rem;
     padding: 20px;
+
 } 
+
+.nav-item{
+    text-decoration: none;
+}
 .navbar a {
     font-weight: bold;
     color: #F0F3BD;
@@ -75,4 +80,5 @@
     color: #05668D;
     text-decoration: none;
 }
+
 </style>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createStore } from "vuex";
 
-const renderURL = "https://eternal-caskets.onrender.com/"
+const renderURL = "https://eternal-caskets.onrender.com/";
 
 export default createStore({
   state: {

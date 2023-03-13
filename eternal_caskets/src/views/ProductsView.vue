@@ -1,12 +1,10 @@
 <template>
 
-    <div class="Products">
-    
-        <h1>Products</h1>
+    <div class="container">
     
         <div class="row gap-3">
                 
-            <div class="card" style="width: 18rem ;" v-for="item in products" :key="item.prodID" >
+            <div class="card" style="width: 18rem ;" v-for="item in Products" :key="item.prodID" >
 
                 <img :src="item.imgURL" class="card-img-top" alt="...">
 
@@ -18,7 +16,7 @@
 
                         <p class="card-text">{{item.prodDes}}</p>
 
-                    <router-link to="/SingleProd"><a class="btn btn-outline-success" >See more</a></router-link>
+                    <router-link to="/SingleProd"><a class="btn" >See more</a></router-link>
 
                 </div>
 
@@ -49,6 +47,7 @@
     </script>
     
     <style scoped>
+
         div.row{
             margin-left: 12px;
         }
@@ -57,33 +56,30 @@
         margin-bottom: 50px;
         }
         .card{
-            background-color: #08172E;
-            opacity: 1;
-            box-shadow:  #198754 5px 5px 5px;
+            background-color:#05668D;
+            opacity: 0.8;
             height: 28rem;
             margin-bottom:25px;
             margin-top: 25px;
+            border: none;
+            border-radius: 15px;
         }
         .card-text{
-            color:white;
+            color:#F0F3BD;
         
         }
         .card-title{
-            color: white;
+            color: #F0F3BD;
             font-size: x-large;
         }
         img{
-            height: 50%;
+            height: 39%;
         }
-        h1{
-            color: #08172E;
-            text-align: center;
-            font-weight: 700;
-            text-transform: uppercase;
+
+        .btn{
+            border-radius: 25px;
+            background-color: #05668D;
+            color: #F0F3BD;
         }
-        @media (max-with: 768px) {
-            div.row {
-                transform: translateX(60%);
-            }
-        }
+
     </style>

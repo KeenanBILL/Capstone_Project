@@ -9,7 +9,6 @@ export default createStore({
     user: null,
     products: null,
     product: null,
-    showSpinner: true,
     message: null,
   },
 
@@ -32,15 +31,12 @@ export default createStore({
     },
     setProduct(state, value) {
       state.product = value;
-    },
-    showSpinner(state, value){
-      state.showSpinner = value
     }
   },
 
   actions: {
     async fetchUsers(context) {
-      const res = await axios.get(`${renderURL}Users`);
+      const res = await axios.get(`${renderURL}users`);
       const { results, err } = await res.data;
       if (results) {
         context.commit("setUsers", results);
@@ -49,18 +45,32 @@ export default createStore({
       }
     },
     async fetchProducts(context) {
-      context.commit('showSpinner', true)
-
-      const res = await axios.get(`${renderURL}Products`);
+      const res = await axios.get(`${renderURL}products`);
       const { results, err } = await res.data;
       if (results) {
         context.commit("setProducts", results);
-        context.commit("showSpinner", false);
       } else {
         context.commit("setProduct", err);
-        context.commit("showSpinner", true);
       }
     },
+    async fetchProduct(context) {
+      const res = await axios.get(`${renderURL}products/:id`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setProducts", results);
+      } else {
+        context.commit("setProduct", err);
+      }
+    },
+    async addProduct(context) {
+      const res = await axios.post(`${renderURL}products`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setProducts", results);
+      } else {
+        context.commit("setProduct", err);
+      }
+    }
   },
   
   modules: {},

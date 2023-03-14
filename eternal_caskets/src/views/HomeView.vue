@@ -1,6 +1,6 @@
 <template>
 
-  <section id="Home" class="Main py-5">
+<section id="Home" class="Main py-5">
 
     <div class="container py-5">
 
@@ -16,7 +16,7 @@
 
                 <br>
 
-                <button class="btn"><router-link class="links" to="/products">Shop Now</router-link></button>
+                <router-link to="/products"><a class="btn" >Shop now</a></router-link>
 
             </div>
 
@@ -40,7 +40,7 @@
 
                 <h1>Organic Products</h1>
 
-                <div class="line2 my-4"></div>
+                <div class="line my-4"></div>
 
                 <p>We do the walking for you by getting the best produce, that can be found internationally. </p>
 
@@ -56,29 +56,11 @@
 
                     <div class="card-body">
 
-                        <span><i class="bi bi-shop-window"></i></span>
+                        <span><i class="bi bi-file-person"></i></span>
 
-                        <h2>Always Fresh</h2>
+                        <h2>Customer Service</h2>
 
-                        <p>We serve our consumers the fresh produce, stored in at the right temperature. This maintains our products longevity</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-
-                <div class="card py-3">
-
-                    <div class="card-body">
-
-                        <span><i class="bi bi-flower2"></i></span>
-
-                        <h2>Healthy Produce</h2>
-
-                        <p>Providing fresh and best option to keep a healthy lifestyle by purchasing some healthy sugar from us.</p>
+                        <p>We serve our consumers with care and accompany individuals catered to their needs.</p>
 
                     </div>
 
@@ -92,11 +74,29 @@
 
                     <div class="card-body">
 
-                        <span><i class="bi bi-gift"></i></span>
+                        <span><i class="bi bi-truck"></i></span>
 
-                        <h2>100% Organic</h2>
+                        <h2>Free Delivery</h2>
 
-                        <p>Tested and approved to be organic by the best agriculturist, so we always keeping to the standard.</p>
+                        <p>Deliveries anywhere in the proximity of Cape Town are free, we deliver anywhere and everywhere.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card py-3">
+
+                    <div class="card-body">
+
+                        <span><i class="bi bi-wallet2"></i></span>
+
+                        <h2>Secure Payments</h2>
+
+                        <p>All payment methods are accepted and secured as well. Accept cash on delivery as well.</p>
 
                     </div>
 
@@ -115,48 +115,54 @@
 <script>
 
 export default {
-  components: {
-  }
+components: {
+}
 }
 
 </script>
 
 <style scoped>
 
-.main{
-  background: url(https://i.postimg.cc/CKMd16pf/Background-Home.jpg) no-repeat;
-  background-size: cover;
-  height: auto;
-  width: 100%;
-  max-width: 100%;
+.bi{
+    font-size: 40px;
+    color:#05668D;
+}
+.line{
+    height: 6px;
+    width: 30%;
+    background: #05668D;
+    display: inline-block;
 }
 
-.main h1{
-  font-size: 5rem;
-  font-family: 'Righteous', cursive;
-  max-width: 100%;
+
+.Main{
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
 }
 
-.main p:nth-child(1){
-  font-size: 18px;
-  font-weight: 500;
-  padding-top: 100px;
+.Main h1{
+    font-size: 5rem;
+    max-width: 100%;
 }
 
-.main p:nth-child(2){
-  font-size: 18px;
-  color: grey;
+.Main p:nth-child(1){
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 100px;
+}
+
+.Main p:nth-child(2){
+    font-size: 18px;
+    color: #F0F3BD;
 }
 
 .btn{
-  border-radius: 25px;
-  background-color: #05668D;
-  color: #F0F3BD;
-  height: 50px;
-  width: 25%;
-  outline: none;
-  border: none;
-  transition: all 0.4s;
+    border-radius: 25px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    width: 50%;
+    transition: all 0.4s;
 }
 
 </style>

@@ -1,44 +1,51 @@
 <template>
+    <div>
+
+        <nav class="navbar navbar-expand-md">
+            
+            <div class="container-fluid">
     
-    <nav class="navbar navbar-expand-md">
-        
-        <div class="container-fluid">
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                
-                <span class="navbar-toggler-icon"></span>
-                
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                
-                <ul class="navbar-nav mx-auto">
+                <div class="row">
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        
+                        <span class="navbar-toggler-icon"></span>
+                        
+                    </button>
                     
-                    <li class="nav-item mx-3" >
+                    <div class="collapse navbar-collapse" id="navbarNav">
                         
-                        <router-link to="/">Home</router-link>
+                        <ul class="navbar-nav mx-auto">
+                            
+                            <li class="nav-item mx-3" >
+                                
+                                <router-link to="/">Home</router-link>
+                                
+                            </li>
+                            
+                            <li class="nav-item mx-3">
+                                
+                                <router-link to="/products">Products</router-link>
+                                
+                            </li>
+                            
+                            <li class="nav-item mx-3">
+                                
+                                <router-link to="/contact">Contact</router-link>
+                                
+                            </li>
+                            
+                        </ul>
                         
-                    </li>
+                    </div>
                     
-                    <li class="nav-item mx-3">
-                        
-                        <router-link to="/products">Products</router-link>
-                        
-                    </li>
-                    
-                    <li class="nav-item mx-3">
-                        
-                        <router-link to="/contact">Contact</router-link>
-                        
-                    </li>
-                    
-                </ul>
+                </div>
                 
             </div>
-            
-        </div>
-
-    </nav>
+    
+        </nav>
+        
+    </div>
 
 </template>
 

@@ -1,7 +1,8 @@
 <template>
-    <div>
 
-    </div>
+    <h1>This the Checkout page
+    </h1>
+    
 </template>
 
 <script>
@@ -9,8 +10,9 @@
     export default {
         
     }
+
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

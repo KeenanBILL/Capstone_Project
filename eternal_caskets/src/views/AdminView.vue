@@ -38,7 +38,7 @@
 
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                <button data-bs-dismiss="modal" type="button" class="btn btn-primary" onclick="addProduct()">Save changes</button>
+                <button data-bs-dismiss="modal" type="button" class="btn btn-primary" onclick="Add">Save changes</button>
 
             </div>
 
@@ -66,8 +66,6 @@
 
         <th scope="col">Delete</th>
 
-        <th scope="col">Add Product</th>
-
     </tr>
 
     </thead>
@@ -86,15 +84,16 @@
 
         <td><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#hair-products">Edit</button></td>
 
-        <td><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#hair-products">Delete</button></td>
+        <td><button type="button" class="btn">Delete</button></td>
 
-        <td><button type="button" class="btn" v-on="event.addProduct">Add</button></td>
-
-        </tr>
-
-    </tbody>
+        
+    </tr>
+    
+</tbody>
 
 </table>
+
+<button type="button" class="btnA" data-bs-toggle="modal" data-bs-target="#hair-products">Add Product</button>
 
 </template>
 
@@ -106,10 +105,13 @@ import { useStore } from "vuex";
 export default {
 setup() {
     const store = useStore();
-    store.dispatch("fetchProducts", "addProduct");
+    store.dispatch("fetchProducts");
+    store.dispatch("addProducts");
     const Products = computed(() => store.state.products);
+    const Add = computed(() => store.state.products);
     return {
         Products,
+        Add
         };
     },
 };
@@ -131,6 +133,15 @@ td{
 img{
     width: 3vw;
     height: 5vh;
+}
+
+.btnA{
+    border: none;
+    border-radius: 25px;
+    width: 18%;
+    background-color: #05668D;
+    color: #F0F3BD;
+    margin-left: 3%;
 }
 
 </style>

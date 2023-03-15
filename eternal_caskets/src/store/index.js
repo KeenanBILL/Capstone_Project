@@ -10,10 +10,14 @@ export default createStore({
     products: null,
     product: null,
     message: null,
+    loadSpinner: true
   },
 
   getters: {
     getUsers:(state)=>state.users,
+    loadSpinner(state) {
+      return state.loadSpinner
+    }
   },
 
   mutations: {
@@ -31,6 +35,9 @@ export default createStore({
     },
     setProduct(state, value) {
       state.product = value;
+    },
+    setLoader(state, value) {
+      state.loadSpinner = value;
     }
   },
 
@@ -58,8 +65,10 @@ export default createStore({
       const { results, err } = await res.data;
       if (results) {
         context.commit("setProducts", results);
+        context.commit("loadSpinner", false);
       } else {
         context.commit("setProduct", err);
+        context.commit("loadSpinner", true);
       }
     },
     async addProduct(context) {

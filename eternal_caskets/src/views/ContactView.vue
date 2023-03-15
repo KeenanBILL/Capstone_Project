@@ -111,7 +111,9 @@
               <p>Email: styletto's@mail.com</p>
 
         </div>
+
     </div>
+    
   </div>
 
 </template>

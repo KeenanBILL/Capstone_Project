@@ -127,13 +127,13 @@ components: {
     font-size: 40px;
     color:#05668D;
 }
+
 .line{
     height: 6px;
     width: 30%;
     background: #05668D;
     display: inline-block;
 }
-
 
 .Main{
     width: 100%;

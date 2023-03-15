@@ -1,8 +1,21 @@
 <template>
 
-<NavbarComp/>
-<router-view/>
-<FooterComp/>
+  <div id="app">
+      
+      <LoaderComp v-if="spinner"/>
+      
+
+      <div v-else>
+
+        
+      </div>
+      
+      <NavbarComp/>
+      <router-view/>
+      <FooterComp/>
+      
+  </div>
+
 
 </template>
 
@@ -10,16 +23,27 @@
 
 import NavbarComp from '../src/components/NavbarComp.vue'
 import FooterComp from '../src/components/FooterComp.vue';
+import LoaderComp from "../src/components/LoaderComp.vue";
+import { useStore } from 'vuex';
+import { computed } from 'vue';
 
 export default {
 
   components: {
-
-    NavbarComp, 
+    LoaderComp,
+    NavbarComp,
     FooterComp
+  },
+    setup() {
+      const store = useStore();
+      store.dispatch("fetchProducts");
+      const spinner = computed (()=> store.state.loadSpinner);
 
-  }
-}
+      return {
+        spinner
+      };
+    }
+};
 
 </script>
 

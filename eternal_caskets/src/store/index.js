@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createStore } from "vuex";
+import router from "@/router"; 
 
 const renderURL = "https://eternal-caskets.onrender.com/";
 
@@ -15,9 +16,6 @@ export default createStore({
 
   getters: {
     getUsers:(state)=>state.users,
-    loadSpinner(state) {
-      return state.loadSpinner
-    }
   },
 
   mutations: {
@@ -35,9 +33,6 @@ export default createStore({
     },
     setProduct(state, value) {
       state.product = value;
-    },
-    setLoader(state, value) {
-      state.loadSpinner = value;
     }
   },
 
@@ -65,10 +60,8 @@ export default createStore({
       const { results, err } = await res.data;
       if (results) {
         context.commit("setProducts", results);
-        context.commit("loadSpinner", false);
       } else {
         context.commit("setProduct", err);
-        context.commit("loadSpinner", true);
       }
     },
     async addProduct(context) {
@@ -78,6 +71,33 @@ export default createStore({
         context.commit("setProducts", results);
       } else {
         context.commit("setProduct", err);
+      }
+    },
+    async updateProd(context) {
+      const res = await axios.put(`${renderURL}products/:id`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setProducts", results);
+      } else {
+        context.commit("setProduct", err);
+      }
+    },
+    async removeProduct(context) {
+      const res = await axios.delete(`${renderURL}products/:id`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setProducts", results);
+      } else {
+        context.commit("setProduct", err);
+      }
+    },
+    async Register(context, payload) {
+      const res = await axios.post(`${renderURL}register`, payload);
+      const { msg, err } = await res.data;
+      if (msg) {
+        router.push("/login");
+      } else {
+        alert(err);
       }
     }
   },

@@ -1,29 +1,42 @@
 <template>
+    <div>
 
-    <div class="container">
-    
-        <div class="row gap-3">
-                
-            <div class="card" style="width: 18rem ;" v-for="item in Products" :key="item.prodID" >
+        <div v-if="Products == undefined">
 
-                <img :src="item.imgURL" class="card-img-top" alt="...">
-
-                    <div class="row card-body">
-
-                        <h5 class="card-title">{{item.prodName}}</h5>
-
-                        <p class="card-text">R {{item.price}}</p>
-
-                        <p class="card-text">{{item.prodDes}}</p>
-
-                    <router-link to="/SingleProd"><a class="btn" >See more</a></router-link>
-
-                </div>
-
-            </div>
+            <LoaderComp/>
 
         </div>
+
+        <div v-else class="container">
+        
+            <div class="row gap-3">
+                    
+                <div class="card" style="width: 18rem ;" v-for="item in Products" :key="item.prodID" >
     
+                    <img :src="item.imgURL" class="card-img-top" alt="...">
+    
+                        <div class="row card-body">
+    
+                            <h5 class="card-title">{{item.prodName}}</h5>
+    
+                            <p class="card-text">R {{item.price}}</p>
+    
+                            <p class="card-text">{{item.prodDes}}</p>
+    
+                        <router-link to="/SingleProd">
+    
+                            <a class="btn">View More</a>
+    
+                        </router-link>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+        
+        </div>
+
     </div>
 
     </template>
@@ -32,16 +45,22 @@
 
     import { computed } from "@vue/runtime-core";
     import { useStore } from "vuex";
+    import LoaderComp from "@/components/LoaderComp.vue";
 
     export default {
-        setup() {
+        components: {
+            LoaderComp
+        },
+
+    setup(){
             const store = useStore();
             store.dispatch("fetchProducts");
             const Products = computed(() => store.state.products);
             return {
                 Products,
-            };
-        },
+            }
+        }
+
     };
 
     </script>
@@ -80,6 +99,7 @@
             border-radius: 25px;
             background-color: #05668D;
             color: #F0F3BD;
+            transition: all 0.4s;
         }
 
     </style>

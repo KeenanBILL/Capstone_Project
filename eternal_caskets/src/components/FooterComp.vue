@@ -37,9 +37,7 @@
 </script>
 
 <style scoped>
-h1,h3, h4{
-    font-family: 'Optien';
-}
+
 .social-links a{
     color: #31532C;
     font-size: 20px;

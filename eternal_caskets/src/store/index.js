@@ -31,8 +31,8 @@ export default createStore({
     setProducts(state, values) {
       state.products = values;
     },
-    setProduct(state, value) {
-      state.product = value;
+    setItem(state, value) {
+      state.SingleProd = value;
     }
   },
 
@@ -55,13 +55,13 @@ export default createStore({
         context.commit("setProduct", err);
       }
     },
-    async fetchProduct(context) {
-      const res = await axios.get(`${renderURL}products/:id`);
+    async SingleProd(context, id) {
+      const res = await axios.get(`${renderURL}products/${id}`);
       const { results, err } = await res.data;
       if (results) {
-        context.commit("setProducts", results);
+        context.commit("setItem", results[0]);
       } else {
-        context.commit("setProduct", err);
+        context.commit("setMessage", err);
       }
     },
     async addProduct(context) {
@@ -91,11 +91,11 @@ export default createStore({
         context.commit("setProduct", err);
       }
     },
-    async Register(context, payload) {
+    async addUser(context, payload) {
       const res = await axios.post(`${renderURL}register`, payload);
       const { msg, err } = await res.data;
       if (msg) {
-        router.push("/login");
+        router.push("/register");
       } else {
         alert(err);
       }

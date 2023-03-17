@@ -12,10 +12,10 @@
             <div class="row gap-3">
                     
                 <div class="card" style="width: 18rem ;" v-for="item in Products" :key="item.prodID" >
-    
+
                     <img :src="item.imgURL" class="card-img-top" alt="...">
     
-                        <div class="row card-body">
+                        <div class="row card-body">     
     
                             <h5 class="card-title">{{item.prodName}}</h5>
     
@@ -23,10 +23,10 @@
     
                             <p class="card-text">{{item.prodDes}}</p>
     
-                        <router-link to="/SingleProd">
-    
+                        <router-link :to="{name:'SingleProd',  params:{id:item.prodID}}">
+
                             <a class="btn">View More</a>
-    
+
                         </router-link>
     
                     </div>

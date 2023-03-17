@@ -25,8 +25,8 @@ const routes = [
     component: ProductsView
   },
   {
-    path: '/SingleProd',
-    name: 'singleProd',
+    path: '/SingleProd/:id',
+    name: 'SingleProd',
     component: SingleProdView
   },
   {

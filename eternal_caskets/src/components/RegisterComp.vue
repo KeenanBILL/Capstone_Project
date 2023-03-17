@@ -2,7 +2,7 @@
 
     <div class="container">
 
-        <form class="form" @submit.prevent="$event=> Register()">
+        <form class="form" @submit.prevent="$event=> addUser()">
 
             <div class="input-box">
 
@@ -60,30 +60,6 @@
 
             </div>
 
-            <div class="input-box">
-
-            <span class="form-label">User Role</span>
-
-            <input type="text" class="form-control" name="name" required v-model="payload.userRole">
-
-            </div>
-
-            <div class="col-6">
-
-            <div class="form-check">
-
-                <input class="form-check-input" type="checkbox" value="" name="text" required>
-
-                <label class="form-check-label">
-
-                Agree to terms and conditions
-
-                </label>
-
-            </div>
-
-            </div>
-
             <div class="col-6">
 
             <button class="btn" type="submit">Submit</button>
@@ -109,20 +85,17 @@
                     cellNumb:"",
                     userPass:"",
                     emailAdd:"",
-                    userRole: "user",
                 },
                 confirm_pass: ""
             }
         },
         methods: {
-            Register() {
+            addUser() {
                 if(this.payload.userPass !== this.confirm_pass) {
                     alert("Password not valid.")
                 }
             else {
-
-                this.$store.dispatch("Register", this.payload);
-
+                this.$store.dispatch("addUser", this.payload);
             }
         }
         

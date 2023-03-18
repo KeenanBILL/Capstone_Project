@@ -99,8 +99,16 @@ export default createStore({
       } else {
         alert(err);
       }
-    }
+    },
+    async Login(context, payload) {
+      const res = await axios.post(`${renderURL}login`, payload);
+      const { msg, err } = await res.data;
+      if (msg) {
+        router.push("/");
+      } else if(err) {
+        alert(err);
+      }
+    },
   },
-  
   modules: {},
 });

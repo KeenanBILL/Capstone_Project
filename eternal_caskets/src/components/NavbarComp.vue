@@ -6,7 +6,23 @@
 
             <div class="container-fluid">
 
-                <router-link to="/register"><a class="btn"><i class="bi bi-person-circle"></i></a></router-link>
+                <div class="dropdown">
+
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <a class="btn"><i class="bi bi-person-circle"></i></a>
+
+                    </button>
+
+                    <ul class="dropdown-menu">
+
+                        <router-link to="/login"><a class="btn">Login</a></router-link>
+
+                        <router-link to="/register"><a class="btn">Register</a></router-link>
+
+                    </ul>
+
+                </div>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 

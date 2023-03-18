@@ -100,13 +100,10 @@
         }
         
     }
-}
+};
 </script>
 
 <style scoped>
-.container{
-    margin-bottom: 8%;
-}
 
 .input-box{
     width: 50%;

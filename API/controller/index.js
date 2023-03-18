@@ -38,7 +38,7 @@ route.delete("/users/:id", (req, res)=> {
     user.removeUser(req, res);
 });
 
-route.patch("/login", (req, res)=> {
+route.post("/login", (req, res)=> {
     user.login(req, res);
 });
 

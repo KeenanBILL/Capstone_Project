@@ -1,6 +1,10 @@
 <template>
 
-    <RegisterComp/>
+    <div class="container">
+
+        <RegisterComp/>
+
+    </div>
     
 </template>
 
@@ -15,6 +19,6 @@ import RegisterComp from '@/components/RegisterComp.vue';
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

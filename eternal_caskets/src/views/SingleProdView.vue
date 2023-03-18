@@ -4,9 +4,9 @@
     
         <div class="row gap-3">
                 
-            <div class="card" style="width: 18rem ;" v-for="item in Products" :key="item.prodID">
+            <div class="card" v-for="item in Products" :key="item.prodID">
 
-                <img :src="item.imgURL" class="card-img-top" alt="...">
+                <img :src="item.imgURL" class="card-img-top" alt="item">
 
                     <div class="row card-body">
 
@@ -16,7 +16,7 @@
 
                         <p class="card-text">{{item.prodDes}}</p>
 
-                    <router-link to="/SingleProd"><a class="btn" >Add to Cart</a></router-link>
+                    <router-link to="/cart"><a class="btn" >Add to Cart</a></router-link>
 
                 </div>
 
@@ -25,23 +25,35 @@
         </div>
         
     </div>
+
 </template>
 
 <script>
-
 import { computed } from "@vue/runtime-core";
-    import { useStore } from "vuex";
+import { useStore } from "vuex";
 
     export default {
-        setup() {
+    setup(){
             const store = useStore();
-            store.dispatch("fetchProduct");
-            const Product = computed(() => store.state.product);
+            store.dispatch("SingleProd");
+            const item = computed(() => store.state.id);
             return {
-                Product,
-            };
-        },
+            item,
+            }
+        }
+
     };
+    // export default {
+
+    //     computed: {
+    //     item() {
+    //         return this.$store.state.item
+    //     }
+    // },
+    //     created() {
+    //     this.$store.dispatch('SingleProd', this.$route.params.id)
+    // }
+    // };
 
 </script>
 

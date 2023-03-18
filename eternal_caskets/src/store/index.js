@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createStore } from "vuex";
+import router from "@/router"; 
 
 const renderURL = "https://eternal-caskets.onrender.com/";
 
@@ -15,9 +16,6 @@ export default createStore({
 
   getters: {
     getUsers:(state)=>state.users,
-    loadSpinner(state) {
-      return state.loadSpinner
-    }
   },
 
   mutations: {
@@ -33,11 +31,8 @@ export default createStore({
     setProducts(state, values) {
       state.products = values;
     },
-    setProduct(state, value) {
-      state.product = value;
-    },
-    setLoader(state, value) {
-      state.loadSpinner = value;
+    setItem(state, value) {
+      state.SingleProd = value;
     }
   },
 
@@ -60,15 +55,13 @@ export default createStore({
         context.commit("setProduct", err);
       }
     },
-    async fetchProduct(context) {
-      const res = await axios.get(`${renderURL}products/:id`);
+    async SingleProd(context, id) {
+      const res = await axios.get(`${renderURL}products/${id}`);
       const { results, err } = await res.data;
       if (results) {
-        context.commit("setProducts", results);
-        context.commit("loadSpinner", false);
+        context.commit("setItem", results[0]);
       } else {
-        context.commit("setProduct", err);
-        context.commit("loadSpinner", true);
+        context.commit("setMessage", err);
       }
     },
     async addProduct(context) {
@@ -78,6 +71,33 @@ export default createStore({
         context.commit("setProducts", results);
       } else {
         context.commit("setProduct", err);
+      }
+    },
+    async updateProd(context) {
+      const res = await axios.put(`${renderURL}products/:id`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setProducts", results);
+      } else {
+        context.commit("setProduct", err);
+      }
+    },
+    async removeProduct(context) {
+      const res = await axios.delete(`${renderURL}products/:id`);
+      const { results, err } = await res.data;
+      if (results) {
+        context.commit("setProducts", results);
+      } else {
+        context.commit("setProduct", err);
+      }
+    },
+    async addUser(context, payload) {
+      const res = await axios.post(`${renderURL}register`, payload);
+      const { msg, err } = await res.data;
+      if (msg) {
+        router.push("/register");
+      } else {
+        alert(err);
       }
     }
   },

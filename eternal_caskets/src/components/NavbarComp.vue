@@ -6,7 +6,7 @@
 
             <div class="container-fluid">
 
-                <button class="btn"><i class="bi bi-person-circle"></i></button>
+                <router-link to="/register"><a class="btn"><i class="bi bi-person-circle"></i></a></router-link>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -45,8 +45,6 @@
                 </ul>
 
             <form class="d-flex" role="search">
-
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 
                 <button class="btn"><i class="bi bi-suit-heart-fill"></i></button>
 

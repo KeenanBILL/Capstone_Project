@@ -1,8 +1,6 @@
 <template>
 
     <div class="container">
-    
-        <div class="row gap-3">
 
             <div class="card">
                 
@@ -21,8 +19,6 @@
                 </div>
 
             </div>
-
-        </div>
         
     </div>
 
@@ -30,18 +26,49 @@
 
 <script>
     export default {
-        name: 'SingleProd',
+        name: "SingleProd",
         computed: {
         item() {
-            return this.$store.state.item
+            return this.$store.state.product
         }
     },
-        created() {
-        this.$store.dispatch('SingleProd', this.$route.params.id)
-        }
+    created() {
+    this.$store.dispatch("SingleProd", this.$route.params.id)
+    }
     };
 </script>
 
 <style scoped>
+.card{
+    background-color:#05668D;
+    opacity: 0.8;
+    height: 35rem;
+    margin-bottom:50px;
+    margin-top: 35px;
+    border: none;
+    border-radius: 15px;
+    align-items: center;
+}
+.card-text{
+    color:#F0F3BD;
+
+}
+.card-title{
+    color: #F0F3BD;
+    font-size: x-large;
+}
+
+img{
+    height: 45%;
+    width: 40%;
+}
+
+.btn{
+    border-radius: 25px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    transition: all 0.4s;
+}
+
 
 </style>

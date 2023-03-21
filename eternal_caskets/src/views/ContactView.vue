@@ -133,7 +133,6 @@
   background-color: #05668D;
   width: 50%; 
   padding: 2%;
-  margin-top: 150px;
   color: #F0F3BD;
   border-radius: 25px;
   opacity: 0.9;
@@ -142,7 +141,6 @@
   background-color: #05668D;
   width: 50%; 
   padding: 5%;
-  margin-top: 150px;
   color: #F0F3BD;
   border-radius: 25px;
   opacity: 0.9;

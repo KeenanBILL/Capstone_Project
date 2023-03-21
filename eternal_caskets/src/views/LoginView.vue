@@ -23,8 +23,6 @@
 
             <button class="btn" type="submit">Login</button>
 
-            <!-- <button class="btn" type="submit"><router-link to: :to="/register"></router-link></button> -->
-
             </div>
 
         </form>

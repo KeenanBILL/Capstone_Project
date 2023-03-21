@@ -8,7 +8,7 @@
 
                 <div class="dropdown">
 
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                         <a class="btn"><i class="bi bi-person-circle"></i></a>
 
@@ -87,6 +87,9 @@
 </script>
 
 <style>
+button .btn dropdown-toggle{
+background-color: #45b6c5;
+}
 
 .navbar {
     background-color: #45b6c5;

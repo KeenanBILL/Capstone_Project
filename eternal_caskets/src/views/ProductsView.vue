@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="contain m-4 mb-5">
 
         <div v-if="Products == undefined">
 
@@ -11,7 +11,7 @@
         
             <div class="row gap-3">
                     
-                <div class="card" style="width: 18rem ;" v-for="item in Products" :key="item.prodID" >
+                <div class="card" style="width: 17rem ;" v-for="item in Products" :key="item.prodID" >
 
                     <img :src="item.imgURL" class="card-img-top" alt="...">
     
@@ -66,9 +66,9 @@
     </script>
     
     <style scoped>
-
-        div.row{
-            margin-left: 12px;
+        .row{
+            justify-content: center;
+            align-content: space-around
         }
         .Products{
         margin-top: 195px;
@@ -77,9 +77,7 @@
         .card{
             background-color:#05668D;
             opacity: 0.8;
-            height: 28rem;
-            margin-bottom:25px;
-            margin-top: 25px;
+            height: 25rem;
             border: none;
             border-radius: 15px;
         }

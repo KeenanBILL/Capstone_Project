@@ -1,6 +1,6 @@
 <template>
 
-<div class="modal fade" id="hair-products" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="hair-products" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
     <div class="modal-dialog" role="document">
 
@@ -46,7 +46,7 @@
 
     </div>
 
-</div>
+</div> -->
 
 <table class="table">
 
@@ -82,9 +82,9 @@
 
         <td>{{item.prodDes}}</td>
 
-        <td><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#hair-products">Edit</button></td>
+        <td><button type="button" class="btn" >Edit</button></td>
 
-        <td><button type="button" class="btn">Delete</button></td>
+        <td><button type="button" :to="{name:'removeProduct',  params:{id:item.prodID}}" class="btn">Delete</button></td>
 
         
     </tr>
@@ -93,7 +93,11 @@
 
 </table>
 
-<button type="button" class="btnA" data-bs-toggle="modal" data-bs-target="#hair-products">Add Product</button>
+<router-link to="/addProduct">
+
+    <button type="button" class="btnA" >Add Product</button>
+
+</router-link>
 
 </template>
 
@@ -106,12 +110,12 @@ export default {
 setup() {
     const store = useStore();
     store.dispatch("fetchProducts");
-    store.dispatch("addProducts");
+    store.dispatch("removeProduct");
     const Products = computed(() => store.state.products);
-    const Add = computed(() => store.state.products);
+    const Remove = computed(() => store.state.product);
     return {
         Products,
-        Add
+        Remove
         };
     },
 };

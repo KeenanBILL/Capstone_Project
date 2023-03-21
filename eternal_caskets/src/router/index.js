@@ -7,6 +7,7 @@ import CheckoutView from '../views/CheckoutView.vue'
 import SingleProdView from '../views/SingleProdView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import AddComp from '../components/AddComp.vue'
 
 const routes = [
   {
@@ -25,7 +26,12 @@ const routes = [
     component: ProductsView
   },
   {
-    path: '/SingleProd/:id',
+    path: '/addProduct',
+    name: 'AddProduct',
+    component: AddComp
+  },
+  {
+    path: '/products/:id',
     name: 'SingleProd',
     component: SingleProdView
   },

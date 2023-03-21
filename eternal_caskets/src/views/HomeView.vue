@@ -9,8 +9,8 @@
             <div class="col-lg-6 py-5">
 
                 <p class="m-0">Welcome to</p>
-
-                <h1 class="welcome-name">Eternal_Caskets</h1>
+                    
+                    <h1 class="welcome-name">Eternal_Caskets</h1>
 
                 <div class="line my-4"></div>
 
@@ -36,13 +36,13 @@
 
             <div class="col-lg-6 m-auto">
 
-                <p class="m-0">Agriculture</p>
+                <p class="m-0">About Us</p>
 
-                <h1>Organic Products</h1>
+                <h1>Personalized Products</h1>
 
                 <div class="line my-4"></div>
 
-                <p>We do the walking for you by getting the best produce, that can be found internationally. </p>
+                <p>We do the walking for you by getting the best products, that can be found internationally. </p>
 
             </div>
 
@@ -133,14 +133,7 @@
 }
 
 .Main{
-    width: 100%;
-    max-width: 100%;
     align-items: center;
-}
-
-.Main h1{
-    font-size: 5rem;
-    max-width: 100%;
 }
 
 .Main p:nth-child(1){

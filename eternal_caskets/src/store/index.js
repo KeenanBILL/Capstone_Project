@@ -32,7 +32,7 @@ export default createStore({
       state.products = values;
     },
     setItem(state, value) {
-      state.SingleProd = value;
+      state.product = value;
     }
   },
 
@@ -52,7 +52,7 @@ export default createStore({
       if (results) {
         context.commit("setProducts", results);
       } else {
-        context.commit("setProduct", err);
+        context.commit("setMessage", err);
       }
     },
     async SingleProd(context, id) {
@@ -64,13 +64,13 @@ export default createStore({
         context.commit("setMessage", err);
       }
     },
-    async addProduct(context) {
-      const res = await axios.post(`${renderURL}products`);
+    async addProduct(context, payload) {
+      const res = await axios.post(`${renderURL}products`, payload);
       const { results, err } = await res.data;
       if (results) {
-        context.commit("setProducts", results);
+        context.commit("setItem", results);
       } else {
-        context.commit("setProduct", err);
+        context.commit("setMessage", err);
       }
     },
     async updateProd(context) {
@@ -82,13 +82,13 @@ export default createStore({
         context.commit("setProduct", err);
       }
     },
-    async removeProduct(context) {
-      const res = await axios.delete(`${renderURL}products/:id`);
+    async removeProduct(context, id) {
+      const res = await axios.delete(`${renderURL}products/${id}`);
       const { results, err } = await res.data;
       if (results) {
-        context.commit("setProducts", results);
+        context.commit("setItem", results);
       } else {
-        context.commit("setProduct", err);
+        context.commit("setMessage", err);
       }
     },
     async addUser(context, payload) {

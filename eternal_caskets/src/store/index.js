@@ -87,6 +87,7 @@ export default createStore({
       const { results, err } = await res.data;
       if (results) {
         context.commit("setItem", results);
+        context.commit('fetchProducts', results);
       } else {
         context.commit("setMessage", err);
       }

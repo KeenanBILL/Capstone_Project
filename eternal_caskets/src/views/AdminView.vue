@@ -84,9 +84,8 @@
 
         <td><button type="button" class="btn" >Edit</button></td>
 
-        <td><button type="button" :to="{name:'removeProduct',  params:{id:item.prodID}}" class="btn">Delete</button></td>
+        <td><button type="button" @click="delP(item.prodID)" class="btn">Delete</button></td>
 
-        
     </tr>
     
 </tbody>
@@ -110,14 +109,17 @@ export default {
 setup() {
     const store = useStore();
     store.dispatch("fetchProducts");
-    store.dispatch("removeProduct");
     const Products = computed(() => store.state.products);
-    const Remove = computed(() => store.state.product);
     return {
         Products,
-        Remove
         };
     },
+    methods:{
+        delP(id){
+            this.$store.dispatch('removeProduct', id);
+            location.reload()
+        }
+    }
 };
 
 </script>

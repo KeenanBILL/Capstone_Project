@@ -13,7 +13,7 @@ class User{
         `
         SELECT DEFAULT, firstName, lastName, genDer, cellNumb, emailAdd, userPass, userRole, userProf, regDate
         FROM Users
-        WHERE emailAdd = ${emailAdd};
+        WHERE emailAdd = '${emailAdd}';
         `;
 
         db.query(strQry, async(err, data)=> {
@@ -103,6 +103,7 @@ class User{
             }
         })    
     }
+    
     updateUser(req, res) {
         const info = req.body;
         if(info.userPass !== null || 
